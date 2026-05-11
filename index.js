@@ -459,7 +459,7 @@ function createBot() {
       auth: config['bot-account'].type,
       host: config.server.ip,
       port: config.server.port,
-      version: botVersion,
+      version: 1.21,
       hideErrors: false,
       checkTimeoutInterval: 600000
     });
