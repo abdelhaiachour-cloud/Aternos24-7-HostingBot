@@ -8,7 +8,7 @@
   "server": {
     "ip": "friendsserver-Vvh7.aternos.me",
     "port": 31302,
-    "version": "26.1.2",
+    "version": "latest",
     "try-creative": false
   },
   "position": {
