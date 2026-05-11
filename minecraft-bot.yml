@@ -1,0 +1,20 @@
+name: Always Online Bot
+on:
+  workflow_dispatch: # للتشغيل اليدوي
+  schedule:
+    - cron: '0 */4 * * *' # سيعيد تشغيل نفسه تلقائياً كل 4 ساعات
+
+concurrency:
+  group: minecraft-bot
+  cancel-in-progress: true # إذا اشتغل بوت جديد، سيقوم بقتل البوت القديم تلقائياً (لمنع الزحمة)
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: node index.js
