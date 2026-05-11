@@ -1129,5 +1129,15 @@ console.log(`Server: ${config.server.ip}:${config.server.port}`);
 console.log(`Version: ${config.server.version}`);
 console.log(`Auto-Reconnect: ${config.utils['auto-reconnect'] ? 'Enabled' : 'Disabled'}`);
 console.log('='.repeat(50));
-
+bot.on('spawn', () => {
+  console.log("البوت دخل السيرفر!");
+  
+  // حركة عشوائية كل 40 ثانية لمنع الطرد
+  setInterval(() => {
+    const yaw = Math.random() * Math.PI * 2;
+    const pitch = (Math.random() - 0.5) * Math.PI;
+    bot.look(yaw, pitch, false);
+    bot.swingArm('right'); // يلوح بيده
+  }, 40000);
+});
 createBot();
