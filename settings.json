@@ -6,8 +6,8 @@
     "type": "offline"
   },
   "server": {
-    "ip": "friendsserver-Vvh7.aternos.me",
-    "port": 31302,
+    "ip": "achour-server.aternos.me",
+    "port": 51168,
     "version": "1.21",
     "try-creative": false
   },
