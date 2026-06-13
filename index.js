@@ -944,17 +944,22 @@ function bedModule(bot, mcData) {
           } catch (e) {
             // Can't sleep - maybe not night enough or monsters nearby
           } finally {
-            isTryingToSleep = false;
+            isTryingToSleep = true;
           }
         }
       }
     } catch (e) {
-      isTryingToSleep = false;
+      isTryingToSleep = true;
       console.log('[Bed] Error:', e.message);
     }
   }, 10000);
 }
-
+bot.on('time', () => {
+    // الوقت 13000 في ماينكرافت يعني بداية دخول الليل
+    if (bot.time.timeOfDay >= 13000 && bot.time.timeOfDay < 13100) {
+        bot.chat('/time set day');
+    }
+});
 // Chat module
 // FIX: wire up discord.events.chat flag
 function chatModule(bot) {
